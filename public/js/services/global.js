@@ -10,6 +10,7 @@ window.angular.module('ngff.services.global', [])
         var current_order = {};
         current_order.items = [];
         var baseurl = 'https://test.go.pizzaapp.biz/api/v/1';
+        var customerId = '2';
         var catalog = {};
 
         return {
@@ -21,7 +22,7 @@ window.angular.module('ngff.services.global', [])
             },
             getCatalog : function(){
                 $http.defaults.headers.common['X-Requested-With'];
-                $http.jsonp(baseurl + '/menu/2?callback=JSON_CALLBACK').
+                $http.jsonp(baseurl + '/menu/'+customerId+'?callback=JSON_CALLBACK').
                     success(function(data, status, headers, config) {
                         // this callback will be called asynchronously
                         // when the response is available
@@ -32,6 +33,9 @@ window.angular.module('ngff.services.global', [])
                         // or server returns response with an error status.
                     });
                 return catalog;
+            },
+            saveOrder : function(order){
+                $http.post(baseurl + '/order/'+customerId, order);
             }
         };
     });

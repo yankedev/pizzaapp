@@ -4,4 +4,6 @@
         <accordion-group heading="{{item.name}}" ng-repeat="item in order.items">
         </accordion-group>
     </accordion>
-</section>                                                                        {{item.name}}
+
+    <button class="btn-primary btn-large" ng-click="registerOrder(order)"><i class="icon-plus-sign"/>Submit</button>
+</section>
