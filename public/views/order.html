@@ -1,0 +1,7 @@
+<section ng-controller="OrderController">
+	<h1>Stato dell'ordine</h1>
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="{{item.name}}" ng-repeat="item in order.items">
+        </accordion-group>
+    </accordion>
+</section>                                                                        {{item.name}}

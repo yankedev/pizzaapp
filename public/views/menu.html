@@ -1,0 +1,16 @@
+<section ng-controller="MenuController">
+	<h1>Menù</h1>
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="{{category.name}}" ng-repeat="category in catalog.categories">
+            <p>The body of the accordion group grows to fit the contents</p>
+
+           <div ng-repeat="item in category.items">
+               <div><button class="btn btn-small" ng-click="order.addItem(item)"><i class="icon-plus-sign"/></button>
+               {{item.name}} - {{item.price | currency:"CHF"}}</div>
+               <div>{{item.description}}</div>
+           </div>
+
+
+        </accordion-group>
+    </accordion>
+</section>
